@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị BookStore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .admin-wrapper {
+            width: min(1240px, calc(100% - 40px));
+            margin: 24px auto;
+        }
+
+        .admin-banner,
+        .admin-card,
+        .admin-table-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
+            margin-bottom: 20px;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .admin-summary-card {
+            padding: 18px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #fff4f0, #fff);
+            border: 1px solid #ecd8d0;
+        }
+
+        .admin-summary-card h3 {
+            margin: 0 0 8px;
+            color: #7d1010;
+            font-size: 16px;
+        }
+
+        .admin-summary-card p {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 700;
+            color: #1f1f1f;
+        }
+
+        .admin-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .admin-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .admin-form-grid .full {
+            grid-column: 1 / -1;
+        }
+
+        .admin-card h2,
+        .admin-table-card h2 {
+            margin-top: 0;
+        }
+
+        .admin-card label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .admin-card input,
+        .admin-card textarea,
+        .admin-card select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #d3d3d3;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .admin-card textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .admin-card .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .admin-card .checkbox-row input {
+            width: auto;
+        }
+
+        .admin-button-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .admin-button-row button,
+        .admin-actions-cell button,
+        .admin-order-status button {
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: white;
+            background: #8b0000;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .admin-button-row button.secondary {
+            background: #7b8a6f;
+        }
+
+        .admin-actions-cell button.danger {
+            background: #555;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            padding: 14px 10px;
+            border-bottom: 1px solid #ececec;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .admin-table select {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #d3d3d3;
+        }
+
+        .admin-product-cell {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .admin-product-cell img {
+            width: 64px;
+            height: 84px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #f3f3f3;
+        }
+
+        .admin-actions-cell {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .admin-order-card {
+            border: 1px solid #ececec;
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 14px;
+            background: #fcfcfc;
+        }
+
+        .admin-order-head,
+        .admin-order-meta,
+        .admin-order-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .admin-order-head {
+            margin-bottom: 14px;
+        }
+
+        .admin-order-meta {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .admin-order-items {
+            display: grid;
+            gap: 8px;
+        }
+
+        .admin-order-item {
+            padding: 10px 12px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #efefef;
+        }
+
+        .admin-order-status {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 180px;
+        }
+
+        .admin-order-status select {
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #d3d3d3;
+        }
+
+        @media (max-width: 900px) {
+            .admin-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả...">
+            <button type="button">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-wrapper">
+        <section class="admin-banner">
+            <h2>Trang quản trị BookStore</h2>
+            <p id="admin-access-message" style="min-height: 24px;"></p>
+            <p id="admin-message" style="min-height: 24px;"></p>
+        </section>
+
+        <div id="admin-page" style="display: none;">
+            <section class="admin-grid">
+                <div class="admin-summary-card">
+                    <h3>Tài khoản</h3>
+                    <p id="summary-users">0</p>
+                </div>
+                <div class="admin-summary-card">
+                    <h3>Danh mục</h3>
+                    <p id="summary-categories">0</p>
+                </div>
+                <div class="admin-summary-card">
+                    <h3>Sản phẩm</h3>
+                    <p id="summary-products">0</p>
+                </div>
+                <div class="admin-summary-card">
+                    <h3>Đơn hàng</h3>
+                    <p id="summary-orders">0</p>
+                </div>
+                <div class="admin-summary-card">
+                    <h3>Đơn chờ xử lý</h3>
+                    <p id="summary-pending-orders">0</p>
+                </div>
+                <div class="admin-summary-card">
+                    <h3>Doanh thu</h3>
+                    <p id="summary-revenue">0 đ</p>
+                </div>
+                <div class="admin-summary-card">
+                    <h3>Liên hệ mới</h3>
+                    <p id="summary-contact-messages">0</p>
+                </div>
+            </section>
+
+            <section class="admin-sections">
+                <div class="admin-card">
+                    <h2>Quản lý danh mục</h2>
+                    <form id="category-form">
+                        <input type="hidden" id="category-id">
+                        <div class="admin-form-grid">
+                            <div class="full">
+                                <label for="category-name">Tên danh mục</label>
+                                <input type="text" id="category-name" required>
+                            </div>
+                            <div class="full">
+                                <label for="category-description">Mô tả</label>
+                                <textarea id="category-description"></textarea>
+                            </div>
+                        </div>
+                        <div class="admin-button-row">
+                            <button id="category-submit" type="submit">Thêm danh mục</button>
+                            <button id="category-cancel" class="secondary" type="button">Làm mới</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="admin-card">
+                    <h2>Quản lý sản phẩm</h2>
+                    <form id="product-form">
+                        <input type="hidden" id="product-id">
+                        <div class="admin-form-grid">
+                            <div class="full">
+                                <label for="product-title">Tên sản phẩm</label>
+                                <input type="text" id="product-title" required>
+                            </div>
+                            <div>
+                                <label for="product-author">Tác giả</label>
+                                <input type="text" id="product-author">
+                            </div>
+                            <div>
+                                <label for="product-price">Giá</label>
+                                <input type="number" id="product-price" min="0" required>
+                            </div>
+                            <div class="full">
+                                <label for="product-image">Ảnh sản phẩm (URL)</label>
+                                <input type="text" id="product-image">
+                            </div>
+                            <div class="full">
+                                <label for="product-category">Danh mục</label>
+                                <select id="product-category"></select>
+                            </div>
+                            <div class="full">
+                                <label for="product-description">Mô tả</label>
+                                <textarea id="product-description"></textarea>
+                            </div>
+                        </div>
+                        <div class="checkbox-row">
+                            <input type="checkbox" id="product-featured-input">
+                            <label for="product-featured-input" style="margin: 0;">Đánh dấu là sản phẩm nổi bật</label>
+                        </div>
+                        <div class="admin-button-row">
+                            <button id="product-submit" type="submit">Thêm sản phẩm</button>
+                            <button id="product-cancel" class="secondary" type="button">Làm mới</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="admin-table-card">
+                <h2>Danh sách danh mục</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Tên danh mục</th>
+                            <th>Mô tả</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="category-list">
+                        <tr>
+                            <td colspan="3">Đang tải danh mục...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="admin-table-card">
+                <h2>Danh sách sản phẩm</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Danh mục</th>
+                            <th>Giá</th>
+                            <th>Loại hiển thị</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-list">
+                        <tr>
+                            <td colspan="5">Đang tải sản phẩm...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="admin-table-card">
+                <h2>Quản lý tài khoản</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Tên đăng nhập</th>
+                            <th>Email</th>
+                            <th>Ngày tạo</th>
+                            <th>Vai trò</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-list">
+                        <tr>
+                            <td colspan="5">Đang tải tài khoản...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="admin-table-card">
+                <h2>Quản lý đơn hàng</h2>
+                <div id="order-list">
+                    <p>Đang tải đơn hàng...</p>
+                </div>
+            </section>
+
+            <section class="admin-table-card">
+                <h2>Liên hệ từ khách hàng</h2>
+                <div id="contact-message-list">
+                    <p>Đang tải liên hệ...</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/store.js?v=20260327-realimages2"></script>
+    <script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+    <script src="js/admin.js?v=20260327-adminnotice2"></script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Tuyển dụng</a></li>
+                    <li><a href="Lien_he.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lien_he.html">Chính sách đổi trả</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="https://store-images.s-microsoft.com/image/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="Facebook">
+                    <img src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png" alt="YouTube">
+                    <img src="https://store-images.s-microsoft.com/image/apps.43327.13510798887167234.cadff69d-8229-427b-a7da-21dbaf80bd81.79b8f512-1b22-45d6-9495-881485e3a87e" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

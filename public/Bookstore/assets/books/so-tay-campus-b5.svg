@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <rect width="400" height="560" fill="#e9f6f7" />
+  <rect x="32" y="32" width="336" height="496" rx="28" fill="#ffffff" stroke="#b9dfe4" stroke-width="3" />
+  <text x="44" y="86" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#266772" letter-spacing="2">STATIONERY</text>
+  <text x="44" y="156" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#13454d">SO TAY</text>
+  <text x="44" y="198" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#13454d">CAMPUS B5</text>
+  <g transform="translate(84 266)">
+    <rect x="0" y="0" width="220" height="170" rx="18" fill="#fffef7" stroke="#9dc6cc" stroke-width="4" />
+    <rect x="0" y="0" width="220" height="30" rx="18" fill="#3aa7b8" />
+    <line x1="30" y1="56" x2="190" y2="56" stroke="#c4d8dc" stroke-width="3" />
+    <line x1="30" y1="84" x2="190" y2="84" stroke="#c4d8dc" stroke-width="3" />
+    <line x1="30" y1="112" x2="190" y2="112" stroke="#c4d8dc" stroke-width="3" />
+    <line x1="30" y1="140" x2="190" y2="140" stroke="#c4d8dc" stroke-width="3" />
+    <line x1="48" y1="30" x2="48" y2="170" stroke="#f2a3ab" stroke-width="3" />
+  </g>
+  <text x="44" y="464" font-family="Arial, sans-serif" font-size="22" fill="#255a62">Giay min, ghi chep de dang</text>
+  <text x="44" y="496" font-family="Arial, sans-serif" font-size="14" fill="#60959b">Book Store Stationery</text>
+</svg>

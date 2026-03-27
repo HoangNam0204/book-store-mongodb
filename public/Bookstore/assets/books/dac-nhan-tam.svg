@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#edf1f8" />
+      <stop offset="100%" stop-color="#2f4f92" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <rect x="40" y="48" width="320" height="464" rx="24" fill="#fffefb" opacity="0.94" />
+  <circle cx="106" cy="160" r="30" fill="#d65e47" />
+  <circle cx="154" cy="160" r="30" fill="#edc978" />
+  <circle cx="202" cy="160" r="30" fill="#2f4f92" />
+  <text x="54" y="94" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2f4f92" letter-spacing="3">COMMUNICATION</text>
+  <text x="54" y="260" font-family="Arial, sans-serif" font-size="46" font-weight="800" fill="#203a6a">DAC NHAN</text>
+  <text x="54" y="314" font-family="Arial, sans-serif" font-size="46" font-weight="800" fill="#203a6a">TAM</text>
+  <rect x="54" y="342" width="122" height="6" rx="3" fill="#2f4f92" />
+  <text x="54" y="396" font-family="Arial, sans-serif" font-size="22" fill="#48648e">Dale Carnegie</text>
+  <text x="54" y="478" font-family="Arial, sans-serif" font-size="14" fill="#6c7ea0">BookStore Selection</text>
+</svg>

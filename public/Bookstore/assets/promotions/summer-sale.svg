@@ -1,0 +1,27 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="118" y1="84" x2="1082" y2="636" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFAB66"/>
+      <stop offset="1" stop-color="#B31111"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFF5DD"/>
+      <stop offset="1" stop-color="#FFD26E"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFEAF1"/>
+      <stop offset="1" stop-color="#FF8AA0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="48" fill="url(#bg)"/>
+  <circle cx="1065" cy="132" r="128" fill="white" fill-opacity=".16"/>
+  <circle cx="172" cy="622" r="158" fill="white" fill-opacity=".12"/>
+  <rect x="94" y="108" width="436" height="82" rx="22" fill="white" fill-opacity=".18"/>
+  <text x="132" y="160" fill="white" font-size="38" font-family="Arial, sans-serif" font-weight="700">Ưu đãi mùa hè</text>
+  <text x="94" y="312" fill="white" font-size="120" font-family="Arial, sans-serif" font-weight="800">SALE</text>
+  <text x="94" y="406" fill="white" font-size="58" font-family="Arial, sans-serif" font-weight="700">đến 50%</text>
+  <rect x="724" y="158" width="176" height="284" rx="22" transform="rotate(-8 724 158)" fill="url(#card1)"/>
+  <rect x="884" y="210" width="182" height="300" rx="22" transform="rotate(9 884 210)" fill="url(#card2)"/>
+  <rect x="790" y="484" width="216" height="86" rx="24" fill="white" fill-opacity=".18"/>
+  <text x="820" y="538" fill="white" font-size="34" font-family="Arial, sans-serif" font-weight="700">Sách chọn lọc</text>
+</svg>

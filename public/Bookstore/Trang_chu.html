@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BookStore - Trang chủ</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .featured-books .book-item button {
+            display: block;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body class="home-page">
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả...">
+            <button type="button">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="myslides">
+                <div class="numbertext">1 / 4</div>
+                <img src="https://cdn0.fahasa.com/media/magentothem/banner7/TrangCTT11_1124_Mainbanner_840x320.jpg" alt="Banner sách 1">
+            </div>
+
+            <div class="myslides">
+                <div class="numbertext">2 / 4</div>
+                <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Diamond_1124_MCBooks_Resize_Slide_840x320.jpg" alt="Banner sách 2">
+            </div>
+
+            <div class="myslides">
+                <div class="numbertext">3 / 4</div>
+                <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Diamond_1124_AlphaBooks_Resize_Slide_840x320.jpg" alt="Banner sách 3">
+            </div>
+
+            <div class="myslides">
+                <div class="numbertext">4 / 4</div>
+                <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Partnership_T11_840x320.jpg" alt="Banner sách 4">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <section class="home-hero">
+        <div class="home-hero__content">
+            <span class="hero-eyebrow">Nhà sách trực tuyến dành cho người yêu sách</span>
+            <h2>Khám phá những đầu sách đáng đọc cho học tập, phát triển bản thân và giải trí mỗi ngày</h2>
+            <p>
+                BookStore tuyển chọn sách văn học, kỹ năng sống, tâm lý học và kinh doanh với thông tin rõ ràng,
+                mức giá hợp lý và ưu đãi cập nhật thường xuyên. Dễ tìm kiếm, dễ đặt hàng và thuận tiện theo dõi
+                đơn hàng ngay trên website.
+            </p>
+            <div class="home-hero__actions">
+                <a href="Danh_sach_san_pham.html" class="hero-button hero-button--primary">Khám phá sản phẩm</a>
+                <a href="Khuyen_mai.html" class="hero-button hero-button--secondary">Xem khuyến mãi</a>
+            </div>
+        </div>
+        <div class="home-hero__stats">
+            <div class="hero-stat-card">
+                <strong>Tuyển chọn mỗi tuần</strong>
+                <span>Liên tục cập nhật đầu sách mới, sách nổi bật và những lựa chọn đáng mua trong tuần.</span>
+            </div>
+            <div class="hero-stat-card">
+                <strong>Đặt hàng thuận tiện</strong>
+                <span>Tìm kiếm nhanh, thêm giỏ dễ dàng và hoàn tất đơn hàng chỉ với vài bước đơn giản.</span>
+            </div>
+            <div class="hero-stat-card">
+                <strong>Hỗ trợ tận tâm</strong>
+                <span>Dễ dàng liên hệ BookStore để được tư vấn đầu sách, giải đáp đơn hàng và hỗ trợ sau mua.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-highlights">
+        <article class="highlight-card">
+            <strong>Đầu sách chọn lọc</strong>
+            <span>Từ sách kỹ năng, văn học đến kinh doanh, mọi tựa sách đều có thông tin rõ ràng và dễ chọn.</span>
+        </article>
+        <article class="highlight-card">
+            <strong>Ưu đãi rõ ràng</strong>
+            <span>Cập nhật khuyến mãi định kỳ để bạn dễ theo dõi giá tốt và lựa chọn sách phù hợp ngân sách.</span>
+        </article>
+        <article class="highlight-card">
+            <strong>Dễ mua, dễ theo dõi</strong>
+            <span>Giỏ hàng, thanh toán và lịch sử đơn hàng được sắp xếp trực quan để thao tác nhanh hơn.</span>
+        </article>
+    </section>
+
+    <section class="featured-books">
+        <div class="section-heading">
+            <span class="section-kicker">Mới cập nhật</span>
+            <h2>Sách mới</h2>
+            <p>Những đầu sách vừa được thêm vào hệ thống để bạn khám phá trước.</p>
+        </div>
+        <div class="book-list" id="new-books">
+            <div class="book-item">
+                <p>Đang tải sản phẩm...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-books">
+        <div class="section-heading">
+            <span class="section-kicker">Được quan tâm</span>
+            <h2>Sách nổi bật</h2>
+            <p>Các tựa sách có nội dung mạnh, hình ảnh đẹp và phù hợp để mua ngay.</p>
+        </div>
+        <div class="book-list" id="featured-books-list">
+            <div class="book-item">
+                <p>Đang tải sản phẩm...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-books">
+        <div class="section-heading">
+            <span class="section-kicker">Dễ chọn</span>
+            <h2>Gợi ý hôm nay</h2>
+            <p>Các lựa chọn dễ tiếp cận về giá và phù hợp với nhiều nhóm độc giả.</p>
+        </div>
+        <div class="book-list" id="recommended-books">
+            <div class="book-item">
+                <p>Đang tải sản phẩm...</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/store.js?v=20260327-realimages2"></script>
+<script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+    <script src="js/home.js"></script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Tuyển dụng</a></li>
+                    <li><a href="Lien_he.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lien_he.html">Chính sách đổi trả</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="assets/facebook.svg" alt="Facebook">
+                    <img src="assets/youtube.svg" alt="YouTube">
+                    <img src="assets/instagram.svg" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

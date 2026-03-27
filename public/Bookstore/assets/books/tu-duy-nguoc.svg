@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe27a" />
+      <stop offset="100%" stop-color="#f2b72d" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <path d="M308 114 L350 156 L308 198" fill="none" stroke="#e04b2f" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M124 250 L82 292 L124 334" fill="none" stroke="#1f232b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="42" y="88" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#6f4a0c" letter-spacing="3">THINK DIFFERENT</text>
+  <text x="42" y="194" font-family="Arial, sans-serif" font-size="50" font-weight="900" fill="#1f232b">TU DUY</text>
+  <text x="42" y="250" font-family="Arial, sans-serif" font-size="50" font-weight="900" fill="#1f232b">NGUOC</text>
+  <rect x="42" y="282" width="122" height="6" rx="3" fill="#6f4a0c" />
+  <text x="42" y="344" font-family="Arial, sans-serif" font-size="22" fill="#4d3814">Adam Grant</text>
+  <text x="42" y="478" font-family="Arial, sans-serif" font-size="14" fill="#6f4a0c">BookStore Selection</text>
+</svg>

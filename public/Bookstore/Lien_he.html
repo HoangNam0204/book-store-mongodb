@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - BookStore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .contact-page {
+            width: min(1180px, calc(100% - 40px));
+            margin: 28px auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+        }
+
+        .contact-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 26px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-card h2,
+        .contact-card h3 {
+            margin-top: 0;
+        }
+
+        .contact-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .contact-form-grid .full {
+            grid-column: 1 / -1;
+        }
+
+        .contact-card label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-card input,
+        .contact-card textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d8d8d8;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .contact-card textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-card button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            background: #8b0000;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .contact-info-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .contact-info-item {
+            background: #faf6f2;
+            border: 1px solid #eadad0;
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .contact-map {
+            margin-top: 18px;
+            border-radius: 14px;
+            overflow: hidden;
+            min-height: 260px;
+            background: linear-gradient(135deg, #f9f3ec, #efe0d7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #5d5148;
+            padding: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .contact-page {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả...">
+            <button type="button">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="contact-page">
+        <section class="contact-card">
+            <h2>Liên hệ với BookStore</h2>
+            <p>Gửi câu hỏi, yêu cầu hỗ trợ hoặc hợp tác. Chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc.</p>
+            <form id="contact-form">
+                <div class="contact-form-grid">
+                    <div>
+                        <label for="contact-name">Họ và tên</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div>
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" required>
+                    </div>
+                    <div class="full">
+                        <label for="contact-subject">Chủ đề</label>
+                        <input type="text" id="contact-subject" required>
+                    </div>
+                    <div class="full">
+                        <label for="contact-message">Nội dung</label>
+                        <textarea id="contact-message" required></textarea>
+                    </div>
+                </div>
+                <p id="contact-feedback" style="min-height: 24px;"></p>
+                <button type="submit">Gửi liên hệ</button>
+            </form>
+        </section>
+
+        <aside class="contact-card">
+            <h3>Thông tin cửa hàng</h3>
+            <div class="contact-info-list">
+                <div class="contact-info-item">
+                    <strong>Địa chỉ</strong>
+                    <p>123 Đường ABC, Quận X, TP HCM</p>
+                </div>
+                <div class="contact-info-item">
+                    <strong>Email hỗ trợ</strong>
+                    <p>support@bookstore.com</p>
+                </div>
+                <div class="contact-info-item">
+                    <strong>Hotline</strong>
+                    <p>1900 1234</p>
+                </div>
+                <div class="contact-info-item">
+                    <strong>Giờ làm việc</strong>
+                    <p>08:00 - 21:00 mỗi ngày</p>
+                </div>
+            </div>
+            <div class="contact-map">
+                <div>
+                    <strong>Khu vực cửa hàng</strong>
+                    <p>BookStore hiện hỗ trợ khách hàng trực tuyến và tiếp nhận tư vấn qua hotline, email hoặc biểu mẫu liên hệ trên website. Thông tin vị trí cửa hàng sẽ được cập nhật đầy đủ trong phiên bản triển khai chính thức.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="js/store.js?v=20260327-realimages2"></script>
+    <script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const feedback = document.getElementById("contact-feedback");
+            const payload = {
+                name: document.getElementById("contact-name").value.trim(),
+                email: document.getElementById("contact-email").value.trim(),
+                subject: document.getElementById("contact-subject").value.trim(),
+                message: document.getElementById("contact-message").value.trim(),
+            };
+
+            try {
+                feedback.textContent = "Đang gửi liên hệ...";
+                feedback.style.color = "#333";
+                const result = await window.BookStore.requestJson("/api/contact", {
+                    method: "POST",
+                    body: JSON.stringify(payload),
+                });
+                feedback.textContent = result.message;
+                feedback.style.color = "#1d6b3d";
+                event.target.reset();
+            } catch (error) {
+                feedback.textContent = error.message;
+                feedback.style.color = "#a80000";
+            }
+        });
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Liên hệ</a></li>
+                    <li><a href="Quan_tri.html">Quản trị</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lich_su_don_hang.html">Lịch sử đơn hàng</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="https://store-images.s-microsoft.com/image/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="Facebook">
+                    <img src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png" alt="YouTube">
+                    <img src="https://store-images.s-microsoft.com/image/apps.43327.13510798887167234.cadff69d-8229-427b-a7da-21dbaf80bd81.79b8f512-1b22-45d6-9495-881485e3a87e" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

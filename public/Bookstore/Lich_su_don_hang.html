@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử đơn hàng - BookStore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .history-wrapper {
+            width: min(1160px, calc(100% - 40px));
+            margin: 24px auto;
+        }
+
+        .history-banner,
+        .history-order-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+            margin-bottom: 18px;
+        }
+
+        .history-order-head,
+        .history-order-meta,
+        .history-order-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .history-order-head {
+            margin-bottom: 12px;
+        }
+
+        .history-order-status {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #7d1010;
+            color: #fff;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        .history-order-meta {
+            margin-bottom: 14px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .history-order-items {
+            display: grid;
+            gap: 10px;
+        }
+
+        .history-order-item {
+            padding: 12px;
+            border: 1px solid #ececec;
+            border-radius: 12px;
+            align-items: center;
+            background: #fcfcfc;
+        }
+
+        .history-order-item img {
+            width: 64px;
+            height: 84px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #f3f3f3;
+        }
+
+        .history-order-item > div:first-of-type {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả...">
+            <button type="button">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="history-wrapper">
+        <section class="history-banner">
+            <h2>Lịch sử đơn hàng</h2>
+            <p id="orders-message" style="min-height: 24px;"></p>
+        </section>
+
+        <section id="orders-container">
+            <article class="history-order-card">
+                <h3>Đang tải đơn hàng...</h3>
+            </article>
+        </section>
+    </main>
+
+    <script src="js/store.js?v=20260327-realimages2"></script>
+    <script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+    <script src="js/order-history.js"></script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Tuyển dụng</a></li>
+                    <li><a href="Lien_he.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lien_he.html">Chính sách đổi trả</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="https://store-images.s-microsoft.com/image/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="Facebook">
+                    <img src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png" alt="YouTube">
+                    <img src="https://store-images.s-microsoft.com/image/apps.43327.13510798887167234.cadff69d-8229-427b-a7da-21dbaf80bd81.79b8f512-1b22-45d6-9495-881485e3a87e" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

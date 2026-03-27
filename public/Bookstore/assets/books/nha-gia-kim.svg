@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f4362" />
+      <stop offset="100%" stop-color="#f0a73d" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <circle cx="280" cy="124" r="62" fill="#ffe7a9" />
+  <path d="M0 424 C92 362 196 340 400 426 L400 560 L0 560 Z" fill="#8b4d22" opacity="0.72" />
+  <text x="42" y="88" font-family="Georgia, serif" font-size="18" fill="#fbe5a8" letter-spacing="3">NOVEL</text>
+  <text x="42" y="184" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="#ffffff">NHA</text>
+  <text x="42" y="242" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="#ffffff">GIA KIM</text>
+  <rect x="42" y="274" width="120" height="6" rx="3" fill="#ffe7a9" />
+  <text x="42" y="336" font-family="Arial, sans-serif" font-size="22" fill="#f6f0df">Paulo Coelho</text>
+  <text x="42" y="478" font-family="Arial, sans-serif" font-size="14" fill="#fff5d3">BookStore Edition</text>
+</svg>

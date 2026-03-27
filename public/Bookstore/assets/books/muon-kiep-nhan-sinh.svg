@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4e6cf" />
+      <stop offset="100%" stop-color="#c97d39" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <circle cx="288" cy="124" r="74" fill="#fff5d8" opacity="0.75" />
+  <path d="M0 442 C120 380 254 382 400 454 L400 560 L0 560 Z" fill="#8d4f24" opacity="0.35" />
+  <text x="40" y="84" font-family="Georgia, serif" font-size="18" fill="#7a4623" letter-spacing="3">SPIRITUAL FICTION</text>
+  <text x="40" y="188" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#60321a">MUON KIEP</text>
+  <text x="40" y="242" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#60321a">NHAN SINH</text>
+  <rect x="40" y="280" width="136" height="6" rx="3" fill="#7a4623" />
+  <text x="40" y="350" font-family="Arial, sans-serif" font-size="22" fill="#5c331d">Nguyen Phong</text>
+  <text x="40" y="484" font-family="Arial, sans-serif" font-size="14" fill="#6d4b37">BookStore Selection</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1014" />
+      <stop offset="100%" stop-color="#2a2d35" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <circle cx="300" cy="98" r="78" fill="#d9b56c" opacity="0.22" />
+  <rect x="34" y="34" width="332" height="492" rx="26" fill="none" stroke="#d9b56c" stroke-width="3" opacity="0.85" />
+  <text x="42" y="84" font-family="Georgia, serif" font-size="18" fill="#d9b56c" letter-spacing="3">SUCCESS CLASSIC</text>
+  <text x="42" y="176" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#f6e4b2">NGHI GIAU</text>
+  <text x="42" y="232" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#f6e4b2">LAM GIAU</text>
+  <rect x="42" y="270" width="126" height="6" rx="3" fill="#d9b56c" />
+  <text x="42" y="342" font-family="Arial, sans-serif" font-size="22" fill="#f1f1f1">Napoleon Hill</text>
+  <text x="42" y="472" font-family="Arial, sans-serif" font-size="14" fill="#c7ccd6">BookStore Edition</text>
+  <circle cx="286" cy="410" r="62" fill="#d9b56c" opacity="0.16" />
+</svg>

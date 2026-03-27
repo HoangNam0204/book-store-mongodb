@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef2df" />
+      <stop offset="100%" stop-color="#92aa6f" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <rect x="44" y="54" width="312" height="452" rx="22" fill="#fafaf5" />
+  <circle cx="294" cy="122" r="54" fill="#c05d42" opacity="0.88" />
+  <text x="68" y="104" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#5d6f46" letter-spacing="2">PSYCHOLOGY</text>
+  <text x="68" y="198" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#283124">DAM</text>
+  <text x="68" y="254" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#283124">BI GHET</text>
+  <rect x="68" y="284" width="124" height="6" rx="3" fill="#5d6f46" />
+  <text x="68" y="340" font-family="Arial, sans-serif" font-size="22" fill="#506042">Koga Fumitake</text>
+  <text x="68" y="470" font-family="Arial, sans-serif" font-size="14" fill="#69785a">BookStore Selection</text>
+</svg>

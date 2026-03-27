@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <rect width="400" height="560" fill="#fff3df" />
+  <rect x="32" y="32" width="336" height="496" rx="28" fill="#ffffff" stroke="#f2c27c" stroke-width="3" />
+  <text x="44" y="86" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#b56300" letter-spacing="2">STATIONERY</text>
+  <text x="44" y="156" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#6b3b00">THUOC KE</text>
+  <text x="44" y="198" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#6b3b00">20CM</text>
+  <text x="44" y="236" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#d17d00">FlexOffice</text>
+  <g transform="translate(70 300) rotate(-16)">
+    <rect x="0" y="0" width="260" height="48" rx="14" fill="#ffb341" />
+    <rect x="16" y="10" width="228" height="28" rx="10" fill="#ffd596" opacity="0.5" />
+    <g stroke="#9b5600" stroke-width="3">
+      <line x1="24" y1="0" x2="24" y2="48" />
+      <line x1="54" y1="0" x2="54" y2="32" />
+      <line x1="84" y1="0" x2="84" y2="48" />
+      <line x1="114" y1="0" x2="114" y2="32" />
+      <line x1="144" y1="0" x2="144" y2="48" />
+      <line x1="174" y1="0" x2="174" y2="32" />
+      <line x1="204" y1="0" x2="204" y2="48" />
+      <line x1="234" y1="0" x2="234" y2="32" />
+    </g>
+  </g>
+  <text x="44" y="464" font-family="Arial, sans-serif" font-size="22" fill="#8f5200">Ro vach chia, de su dung</text>
+  <text x="44" y="496" font-family="Arial, sans-serif" font-size="14" fill="#b27d37">Book Store Stationery</text>
+</svg>

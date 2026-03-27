@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - BookStore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .detail-wrapper {
+            width: min(1180px, calc(100% - 40px));
+            margin: 24px auto;
+        }
+
+        .detail-card {
+            display: grid;
+            grid-template-columns: minmax(280px, 380px) 1fr;
+            gap: 28px;
+            background: #fff;
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .detail-card img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 14px;
+            background: #f3f3f3;
+        }
+
+        .detail-title {
+            margin: 0 0 14px;
+            font-size: 34px;
+            color: #222;
+        }
+
+        .detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .detail-meta span,
+        .detail-featured {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #f1f1f1;
+            color: #444;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .detail-featured {
+            background: #7d1010;
+            color: #fff;
+        }
+
+        .detail-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #8b0000;
+            margin: 12px 0 20px;
+        }
+
+        .detail-description {
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .detail-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .detail-actions button,
+        .related-products .product-item button {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 18px;
+            color: #fff;
+            background: #8b0000;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .detail-actions button:last-child {
+            background: rgb(111, 133, 95);
+        }
+
+        .detail-quantity {
+            margin-bottom: 20px;
+        }
+
+        .detail-quantity input {
+            width: 80px;
+            padding: 8px 10px;
+            margin-left: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .detail-message {
+            min-height: 24px;
+            margin-bottom: 12px;
+        }
+
+        .related-products {
+            margin-top: 28px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .related-products h3 {
+            margin-top: 0;
+        }
+
+        .product-list1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .related-products .product-item {
+            background: #fafafa;
+            border: 1px solid #e6e6e6;
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .related-products .product-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .related-title {
+            font-weight: 700;
+            margin: 0 0 8px;
+            color: #222;
+        }
+
+        .related-price {
+            color: #8b0000;
+            font-weight: 700;
+        }
+
+        @media (max-width: 900px) {
+            .detail-card {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-card img {
+                height: 420px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả...">
+            <button type="button">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="detail-wrapper">
+        <p id="product-detail-message" class="detail-message"></p>
+
+        <section class="detail-card">
+            <div>
+                <img id="product-image" src="" alt="Ảnh sản phẩm">
+            </div>
+            <div>
+                <h2 id="product-title" class="detail-title">Đang tải sản phẩm...</h2>
+                <div class="detail-meta">
+                    <span>Tác giả: <strong id="product-author" style="margin-left: 6px;">Đang tải...</strong></span>
+                    <span>Thể loại: <strong id="product-category" style="margin-left: 6px;">Đang tải...</strong></span>
+                    <span id="product-featured" class="detail-featured" style="display: none;">Sản phẩm nổi bật</span>
+                </div>
+                <div id="product-price" class="detail-price">0 đ</div>
+                <p id="product-description" class="detail-description"></p>
+
+                <div class="detail-quantity">
+                    <label for="quantity">Số lượng:</label>
+                    <input type="number" id="quantity" min="1" value="1">
+                </div>
+
+                <div class="detail-actions">
+                    <button type="button" onclick="addCurrentProductToCart()">Thêm vào giỏ hàng</button>
+                    <button type="button" onclick="buyCurrentProduct()">Mua ngay</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-products">
+            <h3>Sản phẩm liên quan</h3>
+            <div class="product-list1" id="related-products">
+                <p>Đang tải sản phẩm liên quan...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/store.js?v=20260327-realimages2"></script>
+    <script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+    <script src="js/product-detail.js"></script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Tuyển dụng</a></li>
+                    <li><a href="Lien_he.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lien_he.html">Chính sách đổi trả</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="https://store-images.s-microsoft.com/image/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="Facebook">
+                    <img src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png" alt="YouTube">
+                    <img src="https://store-images.s-microsoft.com/image/apps.43327.13510798887167234.cadff69d-8229-427b-a7da-21dbaf80bd81.79b8f512-1b22-45d6-9495-881485e3a87e" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

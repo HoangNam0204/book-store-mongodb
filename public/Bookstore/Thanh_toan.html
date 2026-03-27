@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BookStore - Thanh toán</title>
+    <link rel="stylesheet" href="css/styles.css?v=20260327-checkout3">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả...">
+            <button type="button">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-shell">
+        <section class="checkout-hero">
+            <div class="checkout-hero-copy">
+                <span class="checkout-eyebrow">Thanh toán an toàn</span>
+                <h2>Hoàn tất đơn hàng trong vài bước</h2>
+                <p>Điền thông tin giao hàng, chọn phương thức thanh toán và kiểm tra lại đơn trước khi xác nhận.</p>
+            </div>
+            <div class="checkout-hero-highlights">
+                <div class="checkout-highlight-card">
+                    <strong>Đơn hàng rõ ràng</strong>
+                    <span>Sản phẩm và tổng tiền luôn hiển thị cạnh bên.</span>
+                </div>
+                <div class="checkout-highlight-card">
+                    <strong>Giao nhanh, dễ theo dõi</strong>
+                    <span>Thông tin giao hàng gọn, dễ kiểm tra.</span>
+                </div>
+                <div class="checkout-highlight-card">
+                    <strong>Thanh toán linh hoạt</strong>
+                    <span>Hỗ trợ COD hoặc thẻ theo nhu cầu mua hàng.</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="checkout-layout">
+            <section class="checkout-main">
+                <section class="checkout-card">
+                    <div class="checkout-card-header">
+                        <span class="checkout-step">1</span>
+                        <div>
+                            <h3>Thông tin giao hàng</h3>
+                            <p>Nhập chính xác địa chỉ và số điện thoại để đơn được giao nhanh hơn.</p>
+                        </div>
+                    </div>
+
+                    <div class="checkout-form-grid">
+                        <div class="checkout-field">
+                            <label for="name">Họ và tên <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" required>
+                        </div>
+
+                        <div class="checkout-field">
+                            <label for="phone">Số điện thoại <span class="required">*</span></label>
+                            <input type="text" id="phone" name="phone" placeholder="09xx xxx xxx" required>
+                        </div>
+
+                        <div class="checkout-field checkout-field-full">
+                            <label for="address">Địa chỉ giao hàng <span class="required">*</span></label>
+                            <textarea id="address" name="address" placeholder="Số nhà, tên đường, phường/xã, quận/huyện" required></textarea>
+                        </div>
+
+                        <div class="checkout-field">
+                            <label for="city">Tỉnh/Thành phố <span class="required">*</span></label>
+                            <input type="text" id="city" name="city" placeholder="TP. Hồ Chí Minh" required>
+                        </div>
+
+                        <div class="checkout-field">
+                            <label for="postal-code">Mã bưu điện <span class="required">*</span></label>
+                            <input type="text" id="postal-code" name="postal-code" placeholder="700000" required>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="checkout-card">
+                    <div class="checkout-card-header">
+                        <span class="checkout-step">2</span>
+                        <div>
+                            <h3>Phương thức thanh toán</h3>
+                            <p>Chọn hình thức thanh toán phù hợp trước khi xác nhận đơn hàng.</p>
+                        </div>
+                    </div>
+
+                    <div class="checkout-payment-grid">
+                        <label class="checkout-payment-option">
+                            <input type="radio" name="payment" value="cash" id="cash" class="narrow-radio" checked required>
+                            <span class="checkout-payment-copy">
+                                <strong>Thanh toán khi nhận hàng</strong>
+                                <small>Phù hợp nếu bạn muốn thanh toán trực tiếp khi nhận sách.</small>
+                            </span>
+                        </label>
+
+                        <label class="checkout-payment-option">
+                            <input type="radio" name="payment" value="credit-card" id="credit-card" class="narrow-radio" required>
+                            <span class="checkout-payment-copy">
+                                <strong>Thẻ tín dụng/Ghi nợ</strong>
+                                <small>Hoàn tất thanh toán ngay để xử lý đơn nhanh hơn.</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="card-info checkout-card-fields">
+                        <div class="checkout-field">
+                            <label for="card-number">Số thẻ <span class="required">*</span></label>
+                            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" disabled>
+                        </div>
+
+                        <div class="checkout-field">
+                            <label for="expiry-date">Ngày hết hạn <span class="required">*</span></label>
+                            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" disabled>
+                        </div>
+
+                        <div class="checkout-field">
+                            <label for="cvv">CVV <span class="required">*</span></label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" disabled>
+                        </div>
+                    </div>
+                </section>
+
+                <p id="checkout-message" class="checkout-message"></p>
+
+                <div class="payment-actions checkout-actions">
+                    <button type="button" onclick="window.location.href='Gio_hang.html'">Quay lại giỏ hàng</button>
+                    <button id="confirm-order-btn" type="button" onclick="confirmPayment()">Xác nhận thanh toán</button>
+                </div>
+            </section>
+
+            <aside class="checkout-sidebar">
+                <section class="checkout-card checkout-summary-card">
+                    <div class="checkout-summary-header">
+                        <div>
+                            <span class="checkout-eyebrow">Đơn hàng của bạn</span>
+                            <h3>Tóm tắt thanh toán</h3>
+                        </div>
+                        <span id="checkout-count" class="checkout-count-badge">0 sản phẩm</span>
+                    </div>
+
+                    <div id="checkout-items" class="checkout-items">
+                        <div class="checkout-empty-state">
+                            <h4>Đang tải đơn hàng...</h4>
+                        </div>
+                    </div>
+
+                    <div class="checkout-summary-divider"></div>
+
+                    <div class="checkout-summary-meta">
+                        <div>
+                            <span>Tạm tính</span>
+                            <strong id="checkout-total">0 đ</strong>
+                        </div>
+                        <div>
+                            <span>Phí vận chuyển</span>
+                            <strong>Miễn phí</strong>
+                        </div>
+                    </div>
+
+                    <div class="checkout-total-row">
+                        <span>Tổng thanh toán</span>
+                        <strong id="checkout-total-final">0 đ</strong>
+                    </div>
+
+                    <p class="checkout-summary-note">Bằng việc xác nhận đơn hàng, bạn đồng ý với điều khoản mua hàng và chính sách giao nhận của BookStore.</p>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Tuyển dụng</a></li>
+                    <li><a href="Lien_he.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lien_he.html">Chính sách đổi trả</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="https://store-images.s-microsoft.com/image/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="Facebook">
+                    <img src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png" alt="YouTube">
+                    <img src="https://store-images.s-microsoft.com/image/apps.43327.13510798887167234.cadff69d-8229-427b-a7da-21dbaf80bd81.79b8f512-1b22-45d6-9495-881485e3a87e" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/store.js?v=20260327-realimages2"></script>
+    <script src="js/Thanh_toan.js?v=20260327-checkout2"></script>
+    <script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+</body>
+</html>

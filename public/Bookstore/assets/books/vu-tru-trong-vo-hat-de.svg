@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091126" />
+      <stop offset="100%" stop-color="#1c3b79" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <rect x="30" y="30" width="340" height="500" rx="28" fill="none" stroke="#b7d3ff" stroke-width="4" opacity="0.8" />
+  <circle cx="284" cy="152" r="84" fill="#8cc3ff" opacity="0.16" />
+  <circle cx="280" cy="280" r="78" fill="#ffdf8f" />
+  <ellipse cx="280" cy="280" rx="118" ry="28" fill="none" stroke="#d7ebff" stroke-width="10" opacity="0.9" />
+  <circle cx="114" cy="126" r="4" fill="#ffffff" />
+  <circle cx="164" cy="94" r="3" fill="#ffffff" />
+  <circle cx="210" cy="148" r="5" fill="#ffffff" />
+  <circle cx="96" cy="204" r="4" fill="#ffffff" />
+  <circle cx="332" cy="102" r="3" fill="#ffffff" />
+  <text x="42" y="84" font-family="Georgia, serif" font-size="18" fill="#b7d3ff" letter-spacing="3">SCIENCE SERIES</text>
+  <text x="42" y="184" font-family="Arial, sans-serif" font-size="36" font-weight="800" fill="#ffffff">VU TRU TRONG</text>
+  <text x="42" y="230" font-family="Arial, sans-serif" font-size="36" font-weight="800" fill="#ffffff">VO HAT DE</text>
+  <rect x="42" y="258" width="144" height="6" rx="3" fill="#9ecbff" />
+  <text x="42" y="462" font-family="Arial, sans-serif" font-size="22" fill="#dfeeff">Stephen Hawking</text>
+  <text x="42" y="494" font-family="Arial, sans-serif" font-size="14" fill="#bdd4f4">Book Store Edition</text>
+</svg>

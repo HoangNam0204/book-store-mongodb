@@ -1,0 +1,26 @@
+{
+  "name": "bookstore-mongodb",
+  "version": "1.0.0",
+  "description": "Bookstore project using Node.js + Express + MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "seed": "node seed.js",
+    "clean-data": "node cleanup.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

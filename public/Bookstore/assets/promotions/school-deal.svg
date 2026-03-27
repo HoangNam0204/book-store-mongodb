@@ -1,0 +1,20 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="88" y1="52" x2="1110" y2="654" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E5CFF"/>
+      <stop offset="1" stop-color="#77C4FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="48" fill="url(#bg)"/>
+  <circle cx="1010" cy="154" r="136" fill="white" fill-opacity=".13"/>
+  <circle cx="192" cy="600" r="170" fill="white" fill-opacity=".10"/>
+  <rect x="90" y="106" width="454" height="78" rx="22" fill="white" fill-opacity=".18"/>
+  <text x="130" y="158" fill="white" font-size="38" font-family="Arial, sans-serif" font-weight="700">Năm học mới</text>
+  <text x="90" y="300" fill="white" font-size="84" font-family="Arial, sans-serif" font-weight="800">Back to school</text>
+  <text x="92" y="392" fill="white" font-size="46" font-family="Arial, sans-serif" font-weight="700">Sách + phụ kiện</text>
+  <rect x="760" y="172" width="300" height="210" rx="28" fill="white" fill-opacity=".18"/>
+  <rect x="786" y="200" width="110" height="164" rx="14" fill="white" fill-opacity=".9"/>
+  <rect x="920" y="200" width="112" height="164" rx="14" fill="white" fill-opacity=".66"/>
+  <rect x="782" y="440" width="248" height="78" rx="22" fill="white" fill-opacity=".18"/>
+  <text x="818" y="490" fill="white" font-size="30" font-family="Arial, sans-serif" font-weight="700">Ưu đãi học tập</text>
+</svg>

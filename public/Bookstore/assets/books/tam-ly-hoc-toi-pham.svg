@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a0f14" />
+      <stop offset="100%" stop-color="#8e1f28" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <ellipse cx="132" cy="298" rx="48" ry="68" fill="#f4f0ea" opacity="0.96" />
+  <ellipse cx="248" cy="298" rx="48" ry="68" fill="#16181d" opacity="0.95" />
+  <text x="40" y="88" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#f4d8d8" letter-spacing="3">CRIMINAL MIND</text>
+  <text x="40" y="164" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#ffffff">TAM LY HOC</text>
+  <text x="40" y="214" font-family="Arial, sans-serif" font-size="40" font-weight="800" fill="#ffffff">TOI PHAM</text>
+  <rect x="40" y="238" width="140" height="6" rx="3" fill="#f4d8d8" />
+  <text x="40" y="470" font-family="Arial, sans-serif" font-size="22" fill="#f2e5e5">Steven G</text>
+  <text x="40" y="502" font-family="Arial, sans-serif" font-size="14" fill="#f4d8d8">BookStore Edition</text>
+</svg>

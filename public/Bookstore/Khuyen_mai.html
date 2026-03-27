@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book Store - Khuyến mãi</title>
+    <link rel="stylesheet" href="css/styles.css?v=20260327-promotions4">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả...">
+            <button type="button">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="promo-page">
+        <section class="promo-hero">
+            <div class="promo-hero-copy">
+                <span class="promo-label">Ưu đãi trong tháng</span>
+                <h2>Khuyến mãi nổi bật dành cho người yêu sách</h2>
+                <p>Tổng hợp các chương trình ưu đãi đang áp dụng tại Book Store, từ giảm giá theo mùa đến ưu đãi thanh toán và combo văn phòng phẩm.</p>
+            </div>
+            <div class="promo-hero-summary">
+                <div class="promo-summary-card">
+                    <strong>4 chương trình nổi bật</strong>
+                    <span>Cập nhật để bạn dễ theo dõi và chọn ưu đãi phù hợp.</span>
+                </div>
+                <div class="promo-summary-card">
+                    <strong>Áp dụng trực tiếp</strong>
+                    <span>Dễ kết hợp cùng các đầu sách đang có tại cửa hàng.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="promo-grid">
+            <article class="promo-card">
+                <div class="promo-visual promo-visual-summer" aria-hidden="true"></div>
+                <div class="promo-card-body">
+                    <h3>Khuyến mãi hè rộn ràng</h3>
+                    <p>Giảm giá đến 50% cho các đầu sách nổi bật, phù hợp để mua đọc hoặc làm quà tặng trong mùa hè.</p>
+                    <button class="cta-btn" onclick="window.location.href='Danh_sach_san_pham.html'">Xem chi tiết</button>
+                </div>
+            </article>
+
+            <article class="promo-card">
+                <div class="promo-visual promo-visual-school" aria-hidden="true"></div>
+                <div class="promo-card-body">
+                    <h3>Khuyến mãi mừng năm học mới</h3>
+                    <p>Ưu đãi đặc biệt cho học sinh, sinh viên khi mua các đầu sách học tập, kỹ năng và văn phòng phẩm thiết yếu.</p>
+                    <button class="cta-btn" onclick="window.location.href='Danh_sach_san_pham.html'">Xem chi tiết</button>
+                </div>
+            </article>
+
+            <article class="promo-card">
+                <div class="promo-visual promo-visual-stationery" aria-hidden="true"></div>
+                <div class="promo-card-body">
+                    <h3>Khuyến mãi văn phòng phẩm</h3>
+                    <p>Giảm giá cho sổ tay, bút và phụ kiện học tập khi mua kèm sách. Phù hợp cho mùa tự học và làm việc.</p>
+                    <button class="cta-btn" onclick="window.location.href='Danh_sach_san_pham.html'">Xem chi tiết</button>
+                </div>
+            </article>
+
+            <article class="promo-card">
+                <div class="promo-visual promo-visual-payment" aria-hidden="true"></div>
+                <div class="promo-card-body">
+                    <h3>Khuyến mãi khi thanh toán</h3>
+                    <p>Nhận mã giảm giá cho đơn hàng thanh toán trực tuyến. Giảm chi phí mua sách chỉ với vài thao tác đơn giản.</p>
+                    <button class="cta-btn" onclick="window.location.href='Thanh_toan.html'">Xem chi tiết</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="js/store.js?v=20260327-realimages2"></script>
+    <script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Tuyển dụng</a></li>
+                    <li><a href="Lien_he.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lien_he.html">Chính sách đổi trả</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="assets/facebook.svg" alt="Facebook">
+                    <img src="assets/youtube.svg" alt="YouTube">
+                    <img src="assets/instagram.svg" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt hàng thành công - BookStore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .success-page {
+            width: min(860px, calc(100% - 40px));
+            margin: 36px auto;
+        }
+
+        .success-card {
+            background: #fff;
+            border-radius: 22px;
+            padding: 32px;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .success-badge {
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 18px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8f5ed;
+            color: #1d6b3d;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+            text-align: left;
+        }
+
+        .success-item {
+            background: #faf6f2;
+            border: 1px solid #ebddd5;
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .success-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .success-actions button {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            color: #fff;
+            background: #8b0000;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .success-actions button:last-child {
+            background: #6b8161;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả...">
+            <button type="button">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="success-page">
+        <section class="success-card">
+            <div class="success-badge">✓</div>
+            <h2>Đặt hàng thành công</h2>
+            <p>Cảm ơn bạn đã mua sắm tại BookStore. Đơn hàng của bạn đã được ghi nhận và sẽ được xử lý trong thời gian sớm nhất.</p>
+
+            <div class="success-grid">
+                <div class="success-item">
+                    <strong>Mã đơn hàng</strong>
+                    <p id="success-order-id">---</p>
+                </div>
+                <div class="success-item">
+                    <strong>Tổng thanh toán</strong>
+                    <p id="success-total">0 đ</p>
+                </div>
+            </div>
+
+            <div class="success-actions">
+                <button type="button" onclick="window.location.href='Lich_su_don_hang.html'">Xem lịch sử đơn hàng</button>
+                <button type="button" onclick="window.location.href='Danh_sach_san_pham.html'">Tiếp tục mua sắm</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/store.js"></script>
+    <script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const orderId = params.get("orderId") || "---";
+        const totalAmount = Number(params.get("totalAmount") || 0);
+
+        document.getElementById("success-order-id").textContent = orderId;
+        document.getElementById("success-total").textContent =
+            window.BookStore.formatCurrency(totalAmount);
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Liên hệ</a></li>
+                    <li><a href="Quan_tri.html">Quản trị</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lich_su_don_hang.html">Lịch sử đơn hàng</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="https://store-images.s-microsoft.com/image/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="Facebook">
+                    <img src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png" alt="YouTube">
+                    <img src="https://store-images.s-microsoft.com/image/apps.43327.13510798887167234.cadff69d-8229-427b-a7da-21dbaf80bd81.79b8f512-1b22-45d6-9495-881485e3a87e" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

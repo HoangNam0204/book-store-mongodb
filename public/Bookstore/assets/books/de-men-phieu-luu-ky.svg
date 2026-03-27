@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d6b42" />
+      <stop offset="100%" stop-color="#6fb85e" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg)" />
+  <rect x="30" y="30" width="340" height="500" rx="28" fill="none" stroke="#d8f1b6" stroke-width="4" opacity="0.85" />
+  <circle cx="304" cy="112" r="68" fill="#d8f1b6" opacity="0.18" />
+  <path d="M238 290c26-52 66-84 94-86-14 18-20 34-18 47 22 2 40 10 54 24-36 8-64 24-84 46 10 10 18 22 22 38-24-12-45-18-64-18-14 34-36 58-68 72 10-32 14-58 12-78-28-4-54-14-80-30 32-8 57-20 74-36-10-14-16-29-16-48 24 12 45 16 66 12z" fill="#eef8d2" opacity="0.95" />
+  <text x="42" y="84" font-family="Georgia, serif" font-size="18" fill="#ecffd2" letter-spacing="3">CLASSIC FOR KIDS</text>
+  <text x="42" y="180" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#ffffff">DE MEN</text>
+  <text x="42" y="232" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#ffffff">PHIEU LUU KY</text>
+  <rect x="42" y="264" width="136" height="6" rx="3" fill="#d8f1b6" />
+  <text x="42" y="462" font-family="Arial, sans-serif" font-size="22" fill="#f2ffe4">To Hoai</text>
+  <text x="42" y="494" font-family="Arial, sans-serif" font-size="14" fill="#e3f3cf">Book Store Edition</text>
+</svg>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm - BookStore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .catalog-page {
+            background-color: #f4f4f4;
+        }
+
+        .catalog-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            margin: 20px;
+        }
+
+        .catalog-sidebar {
+            width: 320px;
+            max-height: 520px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+            background-color: #f9f9f9;
+            flex-shrink: 0;
+        }
+
+        .catalog-sidebar h3 {
+            font-size: 20px;
+            margin: 0 0 14px;
+        }
+
+        .catalog-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .catalog-sidebar li {
+            padding: 14px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        .catalog-sidebar li:hover,
+        .catalog-sidebar li.active {
+            background-color: #eee;
+            font-weight: 700;
+        }
+
+        .catalog-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .catalog-filter {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            padding: 22px;
+            border-radius: 14px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            flex-wrap: wrap;
+        }
+
+        .catalog-filter label {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .catalog-filter input {
+            padding: 11px 14px;
+            width: 140px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .catalog-filter #keyword {
+            width: 260px;
+        }
+
+        .catalog-filter button {
+            padding: 12px 20px;
+            border: none;
+            background: #a80000;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .catalog-filter button:hover {
+            background: #8b0000;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .catalog-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 560px;
+        }
+
+        .catalog-card-image {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            display: block;
+            background-color: #faf7f2;
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        .catalog-card-title {
+            font-size: 20px;
+            line-height: 1.4;
+            min-height: 56px;
+            margin: 0 0 12px;
+            color: #222;
+            cursor: pointer;
+        }
+
+        .catalog-card-text {
+            margin: 0 0 8px;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .catalog-card-text strong {
+            color: #222;
+        }
+
+        .catalog-card-actions {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .catalog-card-actions button {
+            padding: 11px 12px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background-color: #8b0000;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .catalog-card-actions button:nth-child(2) {
+            background-color: #8b0000;
+        }
+
+        .catalog-card-actions button:last-child {
+            background-color: rgb(111, 133, 95);
+        }
+
+        .catalog-empty-message {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            color: #666;
+        }
+
+        @media (max-width: 992px) {
+            .catalog-layout {
+                flex-direction: column;
+            }
+
+            .catalog-sidebar {
+                width: 100%;
+                max-height: none;
+            }
+
+            .catalog-filter #keyword {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="catalog-page">
+    <header>
+        <div class="logo">
+            <h1><a href="Trang_chu.html">Book Store</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Trang_chu.html">Trang chủ</a></li>
+                <li><a href="Danh_sach_san_pham.html">Sản phẩm</a></li>
+                <li><a href="Khuyen_mai.html">Khuyến mãi</a></li>
+                <li><a href="Lien_he.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button id="loginBtn"><a href="Dang_nhap.html">Đăng nhập</a></button>
+            |
+            <button id="signupBtn"><a href="Dang_ki.html">Đăng ký</a></button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sách, tác giả..." id="header-keyword">
+            <button type="button" onclick="applyFilters()">Tìm kiếm</button>
+        </div>
+        <div class="gio-hang">
+            <button type="button" onclick="toggleCartDropdown()">Giỏ hàng <span class="arrow-down">▼</span></button>
+
+            <div class="cart-dropdown">
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <div class="cart-item-details">
+                            <span class="cart-item-name">Đang tải giỏ hàng...</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="cart-actions">
+                    <button onclick="window.location.href='Gio_hang.html'">Xem giỏ hàng</button>
+                    <button onclick="window.location.href='Thanh_toan.html'">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="catalog-layout">
+        <aside class="catalog-sidebar">
+            <h3>Thể loại sách</h3>
+            <ul id="category-list">
+                <li class="active" data-category-id="">Tất cả</li>
+            </ul>
+        </aside>
+
+        <section class="catalog-content">
+            <div class="catalog-filter">
+                <label for="keyword">Từ khóa:</label>
+                <input type="text" id="keyword" placeholder="Tên sách hoặc tác giả">
+                <label for="minPrice">Giá từ:</label>
+                <input type="number" id="minPrice" placeholder="0">
+                <label for="maxPrice">Đến:</label>
+                <input type="number" id="maxPrice" placeholder="200000">
+                <button type="button" onclick="applyFilters()">Lọc sản phẩm</button>
+            </div>
+
+            <div class="catalog-grid" id="product-list"></div>
+        </section>
+    </div>
+
+    <script>
+        let allProducts = [];
+        let selectedCategoryId = "";
+
+        function getCategoryName(product) {
+            return product.category?.name || "Chưa phân loại";
+        }
+
+        function renderCategories(products) {
+            const categoryList = document.getElementById("category-list");
+            const categoryMap = new Map();
+
+            products.forEach((product) => {
+                if (product.category?._id) {
+                    categoryMap.set(product.category._id, product.category.name);
+                }
+            });
+
+            const categoryItems = ['<li class="active" data-category-id="">Tất cả</li>'];
+
+            categoryMap.forEach((name, id) => {
+                categoryItems.push(`<li data-category-id="${id}">${name}</li>`);
+            });
+
+            categoryList.innerHTML = categoryItems.join("");
+
+            categoryList.querySelectorAll("li").forEach((item) => {
+                item.addEventListener("click", () => {
+                    selectedCategoryId = item.dataset.categoryId || "";
+
+                    categoryList.querySelectorAll("li").forEach((node) => {
+                        node.classList.remove("active");
+                    });
+
+                    item.classList.add("active");
+                    applyFilters();
+                });
+            });
+        }
+
+        function renderProducts(products) {
+            const container = document.getElementById("product-list");
+            container.innerHTML = "";
+
+            if (!products || products.length === 0) {
+                container.innerHTML =
+                    '<div class="catalog-empty-message">Không có sản phẩm nào phù hợp.</div>';
+                return;
+            }
+
+            products.forEach((product) => {
+                container.innerHTML += `
+                    <article class="catalog-card">
+                        <img
+                            class="catalog-card-image"
+                            src="${window.BookStore.getStoreImage(product.image, product)}"
+                            alt="${product.title}"
+                            data-title="${product.title}"
+                            data-author="${product.author || ""}"
+                            data-category="${getCategoryName(product)}"
+                            onerror="window.handleStoreImageError(this)"
+                            onclick="goToProductDetail('${product._id}')"
+                        >
+                        <h3 class="catalog-card-title" onclick="goToProductDetail('${product._id}')">${product.title}</h3>
+                        <p class="catalog-card-text"><strong>Tác giả:</strong> ${product.author || "Chưa cập nhật"}</p>
+                        <p class="catalog-card-text"><strong>Thể loại:</strong> ${getCategoryName(product)}</p>
+                        <p class="catalog-card-text"><strong>Giá:</strong> ${Number(product.price || 0).toLocaleString("vi-VN")} đ</p>
+                        <div class="catalog-card-actions">
+                            <button type="button" onclick="goToProductDetail('${product._id}')">Xem chi tiết</button>
+                            <button type="button" onclick="addToCart('${product._id}')">Thêm vào giỏ</button>
+                            <button type="button" onclick="buyNow('${product._id}')">Mua ngay</button>
+                        </div>
+                    </article>
+                `;
+            });
+        }
+
+        function applyFilters() {
+            const keywordInput = document.getElementById("keyword");
+            const headerKeywordInput = document.getElementById("header-keyword");
+            const keyword =
+                (keywordInput.value || headerKeywordInput.value || "").trim().toLowerCase();
+            const min = Number(document.getElementById("minPrice").value) || 0;
+            const max = Number(document.getElementById("maxPrice").value) || Infinity;
+
+            if (keywordInput.value !== headerKeywordInput.value) {
+                headerKeywordInput.value = keywordInput.value || headerKeywordInput.value;
+                keywordInput.value = headerKeywordInput.value;
+            }
+
+            const filtered = allProducts.filter((product) => {
+                const price = Number(product.price || 0);
+                const productCategoryId = product.category?._id || "";
+                const matchesKeyword =
+                    !keyword ||
+                    product.title?.toLowerCase().includes(keyword) ||
+                    product.author?.toLowerCase().includes(keyword);
+                const matchesPrice = price >= min && price <= max;
+                const matchesCategory =
+                    !selectedCategoryId || productCategoryId === selectedCategoryId;
+
+                return matchesKeyword && matchesPrice && matchesCategory;
+            });
+
+            renderProducts(filtered);
+        }
+
+        function applyQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const keyword = params.get("keyword") || "";
+
+            document.getElementById("keyword").value = keyword;
+            document.getElementById("header-keyword").value = keyword;
+        }
+
+        async function loadProducts() {
+            try {
+                const products = await window.BookStore.requestJson("/api/products?limit=100&sort=newest", {
+                    headers: {},
+                });
+
+                allProducts = products;
+                renderCategories(products);
+                applyQueryParams();
+                applyFilters();
+            } catch (error) {
+                document.getElementById("product-list").innerHTML =
+                    '<div class="catalog-empty-message">Lỗi tải sản phẩm.</div>';
+                console.error(error);
+            }
+        }
+
+        document.getElementById("keyword").addEventListener("input", applyFilters);
+        document.getElementById("header-keyword").addEventListener("input", () => {
+            document.getElementById("keyword").value =
+                document.getElementById("header-keyword").value;
+            applyFilters();
+        });
+    </script>
+
+    <script src="js/store.js?v=20260327-realimages2"></script>
+    <script src="js/Trang_chu.js?v=20260326-cartview5"></script>
+    <script>
+        loadProducts();
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="Trang_chu.html">Giới thiệu</a></li>
+                    <li><a href="Khuyen_mai.html">Tin tức</a></li>
+                    <li><a href="Lien_he.html">Tuyển dụng</a></li>
+                    <li><a href="Lien_he.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="Danh_sach_san_pham.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Thanh_toan.html">Phương thức thanh toán</a></li>
+                    <li><a href="Lien_he.html">Chính sách đổi trả</a></li>
+                    <li><a href="Lien_he.html">Liên hệ hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liên hệ</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận X, TP HCM</p>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-column">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-icons">
+                    <img src="https://store-images.s-microsoft.com/image/apps.30645.9007199266245907.cb06f1f9-9154-408e-b4ef-d19f2325893b.ac3b465e-4384-42a8-9142-901c0405e1bc" alt="Facebook">
+                    <img src="https://seeklogo.com/images/Y/youtube-square-logo-3F9D037665-seeklogo.com.png" alt="YouTube">
+                    <img src="https://store-images.s-microsoft.com/image/apps.43327.13510798887167234.cadff69d-8229-427b-a7da-21dbaf80bd81.79b8f512-1b22-45d6-9495-881485e3a87e" alt="Instagram">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
