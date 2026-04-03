@@ -164,6 +164,19 @@ function createSessionUser(user) {
   };
 }
 
+function saveSession(req) {
+  return new Promise((resolve, reject) => {
+    req.session.save((error) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
+      resolve();
+    });
+  });
+}
+
 function requireAuth(req, res, next) {
   if (!req.session.user) {
     return res.status(401).json({ message: "Bạn chưa đăng nhập." });
@@ -599,6 +612,7 @@ app.post("/api/auth/register", async (req, res) => {
 
     req.session.user = createSessionUser(user);
     await mergeGuestCartIntoUserCart(req, user._id);
+    await saveSession(req);
 
     return res.status(201).json({
       message: "Đăng ký tài khoản thành công.",
@@ -628,6 +642,7 @@ app.post("/api/auth/login", async (req, res) => {
 
     req.session.user = createSessionUser(user);
     await mergeGuestCartIntoUserCart(req, user._id);
+    await saveSession(req);
 
     return res.json({
       message: "Đăng nhập thành công.",
