@@ -1,63 +1,61 @@
 # Book Store MongoDB
 
-Do an mon Lap trinh Web nang cao, xay dung bang `Node.js + Express + MongoDB`.
+Do an mon Lap trinh Web nang cao, xay dung mot website ban sach truc tuyen bang `Node.js + Express + MongoDB`.
 
-## Tinh nang chinh
+## Tong quan
 
-- Dang ky, dang nhap, dang xuat bang session
-- Xem danh sach san pham tu MongoDB
-- Tim kiem, loc theo gia va theo the loai
-- Xem chi tiet san pham dong
-- Them vao gio hang, cap nhat so luong, checkout
-- Luu don hang vao MongoDB
-- Gui lien he khach hang va luu vao MongoDB
-- Xem lich su don hang cua nguoi dung
-- Trang quan tri cho admin:
-  - Quan ly tai khoan va phan quyen admin/customer
-  - CRUD danh muc
-  - CRUD san pham
-  - Quan ly trang thai don hang
-  - Quan ly lien he khach hang
-  - Xem thong ke tong quan
+Project hien da hoan thien theo huong mot website thuc te:
+
+- giao dien nguoi dung de xem sach, tim kiem, loc gia va loc danh muc
+- dang ky, dang nhap, dang xuat bang session
+- gio hang, thanh toan, lich su don hang
+- trang lien he va luu thong tin lien he vao MongoDB
+- trang quan tri de quan ly danh muc, san pham, tai khoan, don hang va lien he
+- deploy online tren Render
+- database online tren MongoDB Atlas
+- co the theo doi du lieu truc tiep bang MongoDB Compass
 
 ## Cong nghe su dung
 
+- HTML
+- CSS
+- JavaScript
 - Node.js
 - Express
 - MongoDB
+- MongoDB Atlas
 - MongoDB Compass
 - GitHub
 - Render
 
-## Chay local
+## Tinh nang chinh
 
-Tao file `.env`:
+- Dang ky, dang nhap, dang xuat
+- Xem danh sach san pham va chi tiet san pham
+- Tim kiem san pham
+- Loc theo gia va theo danh muc
+- Them vao gio hang, cap nhat so luong, mua ngay
+- Thanh toan va tao don hang
+- Xem lich su don hang
+- Gui form lien he
+- CRUD danh muc trong trang admin
+- CRUD san pham trong trang admin
+- Cap nhat trang thai don hang
+- Cap nhat vai tro nguoi dung
+- Cap nhat trang thai lien he
+- Dashboard thong ke tong quan
 
-```env
-MONGO_URI=mongodb://127.0.0.1:27017/bookstore
-SESSION_SECRET=bookstore_secret
-PORT=3000
-```
+## Cac trang chinh
 
-Chay project:
-
-```bash
-npm install
-npm run seed
-npm start
-```
-
-Mo website:
-
-```text
-http://localhost:3000/Bookstore/Trang_chu.html
-```
-
-Mo MongoDB Compass va connect:
-
-```text
-mongodb://127.0.0.1:27017/bookstore
-```
+- `Bookstore/Trang_chu.html`
+- `Bookstore/Danh_sach_san_pham.html`
+- `Bookstore/Chi_tiet_san_pham.html?id=<productId>`
+- `Bookstore/Gio_hang.html`
+- `Bookstore/Thanh_toan.html`
+- `Bookstore/Lich_su_don_hang.html`
+- `Bookstore/Lien_he.html`
+- `Bookstore/Dat_hang_thanh_cong.html`
+- `Bookstore/Quan_tri.html`
 
 ## Tai khoan mau
 
@@ -68,18 +66,6 @@ mongodb://127.0.0.1:27017/bookstore
   - username: `customer`
   - password: `customer123`
 
-## Cac trang chinh
-
-- `Trang_chu.html`
-- `Danh_sach_san_pham.html`
-- `Chi_tiet_san_pham.html?id=<productId>`
-- `Gio_hang.html`
-- `Thanh_toan.html`
-- `Lich_su_don_hang.html`
-- `Lien_he.html`
-- `Dat_hang_thanh_cong.html`
-- `Quan_tri.html`
-
 ## MongoDB collections
 
 - `users`
@@ -88,89 +74,150 @@ mongodb://127.0.0.1:27017/bookstore
 - `carts`
 - `orders`
 - `contactmessages`
+- `sessions`
 
-## Dua len GitHub
+## Chay local
 
-Project hien tai chua la git repository, nen lam theo thu tu:
+### 1. Tao file `.env`
 
-```bash
-git init -b main
-git add .
-git commit -m "Initial commit"
+Vi du dung local MongoDB:
+
+```env
+MONGO_URI=mongodb://127.0.0.1:27017/bookstore
+SESSION_SECRET=bookstore_secret
+PORT=3000
 ```
 
-Sau do tao repo moi tren GitHub roi gan remote:
+Vi du dung MongoDB Atlas:
 
-```bash
-git remote add origin https://github.com/<your-username>/<your-repo>.git
-git push -u origin main
+```env
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster-host>/bookstore?retryWrites=true&w=majority&appName=Cluster0
+SESSION_SECRET=bookstore_secret
+PORT=3000
 ```
 
-## Hosting de demo
+### 2. Cai package
 
-Khong nen dung GitHub Pages cho project nay, vi GitHub Pages chi phu hop cho website static. Project nay can server `Express` va database `MongoDB`.
+```bash
+npm install
+```
 
-De host dung cach:
-
-1. Day code len GitHub
-2. Tao MongoDB Atlas cluster
-3. Dung MongoDB Compass ket noi vao Atlas
-4. Deploy app len Render
-
-## MongoDB Atlas + Compass
-
-1. Tao cluster free tren MongoDB Atlas
-2. Tao database user
-3. Whitelist IP
-4. Lay connection string
-5. Dung string do trong:
-   - Render env var `MONGO_URI`
-   - MongoDB Compass de kiem tra du lieu
-
-Vi vay, du host online, ban van co the dung MongoDB Compass de xem collections va documents.
-
-## Deploy len Render
-
-Project da co san file [render.yaml](./render.yaml).
-
-Ban lam theo cac buoc:
-
-1. Dang nhap Render
-2. Chon `New +` -> `Blueprint`
-3. Chon repo GitHub cua project
-4. Dat env vars:
-   - `MONGO_URI`
-   - `SESSION_SECRET`
-5. Deploy
-
-Sau khi deploy xong, Render se cap URL online.
-
-## Seed du lieu khi deploy
-
-Ban co 2 cach:
-
-- Chay local:
+### 3. Seed du lieu mau
 
 ```bash
 npm run seed
 ```
 
-- Hoac mo Render Shell/console roi chay:
+### 4. Chay server
 
 ```bash
-node seed.js
+npm start
 ```
 
-## Luu y khi demo
+### 5. Mo website
 
-- Neu demo local: dung MongoDB local + Compass local
-- Neu demo online: dung MongoDB Atlas + Compass ket noi Atlas
-- Sau khi them san pham, tao don hang, gui lien he, co the refresh Compass de thay du lieu thay doi
+```text
+http://localhost:3000/Bookstore/Trang_chu.html
+```
 
-## Nguon tham khao chinh
+## Chay online
 
-- GitHub Docs: https://docs.github.com/articles/adding-an-existing-project-to-github-using-the-command-line
-- GitHub Pages Docs: https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
-- Render Docs: https://render.com/docs/deploy-node-express-app
+### GitHub repo
+
+```text
+https://github.com/HoangNam0204/book-store-mongodb
+```
+
+### Website online
+
+```text
+https://book-store-mongodb.onrender.com/Bookstore/Trang_chu.html
+```
+
+### API health check
+
+```text
+https://book-store-mongodb.onrender.com/api/health
+```
+
+Neu health check tra ve:
+
+```json
+{"status":"ok","database":"connected"}
+```
+
+thi server va database dang hoat dong binh thuong.
+
+## MongoDB Atlas va MongoDB Compass
+
+Website online dang dung MongoDB Atlas. MongoDB Compass duoc dung de:
+
+- xem collection
+- xem document
+- kiem tra du lieu thay doi sau khi thao tac tren web
+
+Khi demo online, nen mo dung connection Atlas trong Compass, khong dung connection `127.0.0.1` neu muon chung minh website online dang ghi du lieu that.
+
+Connection Atlas se co cac collection:
+
+- `users`
+- `products`
+- `categories`
+- `carts`
+- `orders`
+- `contactmessages`
+- `sessions`
+
+## Deploy len Render
+
+Project nay da duoc deploy thanh cong len Render dang `Web Service`.
+
+Thong so chinh:
+
+- Runtime: `Node`
+- Build Command: `npm install`
+- Start Command: `npm start`
+- Health Check Path: `/api/health`
+
+Environment variables can co:
+
+- `MONGO_URI`
+- `SESSION_SECRET`
+
+Khong can khai bao `PORT` tren Render vi Render se tu cap phat.
+
+## Ghi chu ve session
+
+Project dang dung `express-session` ket hop `connect-mongo`, vi vay session khong con luu bang MemoryStore. Cach nay phu hop hon cho moi truong production va giam nguy co mat session khi service restart.
+
+## Luu y khi demo va thuyet trinh
+
+- Render free co the sleep khi khong su dung, vi vay lan mo dau co the cham 20-50 giay
+- Nen mo san 4 tab:
+  - website online
+  - trang admin online
+  - MongoDB Compass o connection Atlas
+  - GitHub repo
+- Khong nen mo file `.env` trong luc thuyet trinh
+- Neu da lam lo password Atlas trong qua trinh setup, nen doi password database user va cap nhat lai `MONGO_URI`
+
+## Kich ban demo de xuat
+
+1. Mo trang chu online
+2. Dang nhap tai khoan customer
+3. Them san pham vao gio hang
+4. Thanh toan tao don hang
+5. Mo MongoDB Compass va refresh collection `orders`
+6. Dang nhap tai khoan admin
+7. Them hoac xoa mot san pham
+8. Refresh collection `products` trong Compass
+
+## Tai lieu tham khao
+
+- Node.js Docs: https://nodejs.org
+- Express Docs: https://expressjs.com
+- MongoDB Docs: https://www.mongodb.com/docs
 - MongoDB Compass Docs: https://www.mongodb.com/docs/compass/connect/
-- MongoDB Atlas + Compass Docs: https://www.mongodb.com/docs/atlas/compass-connection/
+- MongoDB Atlas Docs: https://www.mongodb.com/docs/atlas/
+- Render Docs: https://render.com/docs
+- GitHub Docs: https://docs.github.com

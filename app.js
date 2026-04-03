@@ -3,6 +3,7 @@ const { randomBytes, scryptSync, timingSafeEqual } = require("crypto");
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 require("dotenv").config();
 
 const Category = require("./models/Category");
@@ -16,6 +17,7 @@ const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const { MONGO_URI, SESSION_SECRET = "bookstore_secret" } = process.env;
 const ORDER_STATUSES = ["pending", "confirmed", "completed", "cancelled"];
+const isProduction = process.env.NODE_ENV === "production";
 
 app.use((req, res, next) => {
   res.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
@@ -33,13 +35,26 @@ app.use(
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.set("trust proxy", 1);
 
 app.use(
   session({
     secret: SESSION_SECRET,
+    store: MongoStore.create({
+      mongoUrl: MONGO_URI,
+      collectionName: "sessions",
+      ttl: 60 * 60 * 24,
+      autoRemove: "native",
+      crypto: {
+        secret: SESSION_SECRET,
+      },
+    }),
     resave: false,
     saveUninitialized: false,
     cookie: {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: isProduction,
       maxAge: 1000 * 60 * 60 * 24,
     },
   })
