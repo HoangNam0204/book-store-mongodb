@@ -611,8 +611,18 @@ app.post("/api/auth/register", async (req, res) => {
     });
 
     req.session.user = createSessionUser(user);
-    await mergeGuestCartIntoUserCart(req, user._id);
-    await saveSession(req);
+
+    try {
+      await mergeGuestCartIntoUserCart(req, user._id);
+    } catch (mergeError) {
+      console.error("mergeGuestCartIntoUserCart failed during register", mergeError);
+    }
+
+    try {
+      await saveSession(req);
+    } catch (sessionError) {
+      console.error("saveSession failed during register", sessionError);
+    }
 
     return res.status(201).json({
       message: "Đăng ký tài khoản thành công.",
@@ -641,8 +651,18 @@ app.post("/api/auth/login", async (req, res) => {
     }
 
     req.session.user = createSessionUser(user);
-    await mergeGuestCartIntoUserCart(req, user._id);
-    await saveSession(req);
+
+    try {
+      await mergeGuestCartIntoUserCart(req, user._id);
+    } catch (mergeError) {
+      console.error("mergeGuestCartIntoUserCart failed during login", mergeError);
+    }
+
+    try {
+      await saveSession(req);
+    } catch (sessionError) {
+      console.error("saveSession failed during login", sessionError);
+    }
 
     return res.json({
       message: "Đăng nhập thành công.",
