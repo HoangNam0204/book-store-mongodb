@@ -45,9 +45,6 @@ app.use(
       collectionName: "sessions",
       ttl: 60 * 60 * 24,
       autoRemove: "native",
-      crypto: {
-        secret: SESSION_SECRET,
-      },
     }),
     resave: false,
     saveUninitialized: false,
