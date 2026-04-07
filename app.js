@@ -18,6 +18,7 @@ const PORT = Number(process.env.PORT || 3000);
 const { MONGO_URI, SESSION_SECRET = "bookstore_secret" } = process.env;
 const ORDER_STATUSES = ["pending", "confirmed", "completed", "cancelled"];
 const isProduction = process.env.NODE_ENV === "production";
+const useMemoryStore = process.env.SESSION_STORE === "memory";
 
 app.use((req, res, next) => {
   res.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
@@ -37,25 +38,30 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("trust proxy", 1);
 
-app.use(
-  session({
-    secret: SESSION_SECRET,
-    store: MongoStore.create({
-      mongoUrl: MONGO_URI,
-      collectionName: "sessions",
-      ttl: 60 * 60 * 24,
-      autoRemove: "native",
-    }),
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: isProduction,
-      maxAge: 1000 * 60 * 60 * 24,
-    },
-  })
-);
+const sessionOptions = {
+  secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: isProduction,
+    maxAge: 1000 * 60 * 60 * 24,
+  },
+};
+
+if (!useMemoryStore) {
+  sessionOptions.store = MongoStore.create({
+    mongoUrl: MONGO_URI,
+    collectionName: "sessions",
+    ttl: 60 * 60 * 24,
+    autoRemove: "native",
+  });
+} else {
+  console.warn("SESSION_STORE=memory => using MemoryStore (demo mode).");
+}
+
+app.use(session(sessionOptions));
 
 function createHttpError(status, message) {
   const error = new Error(message);
